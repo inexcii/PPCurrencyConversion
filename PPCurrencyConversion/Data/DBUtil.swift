@@ -28,7 +28,7 @@ class DBUtil: NSObject {
     func createCurrencies(keys nameDicSortedKeys: [String], namesDic: [String: String], ratesDic: [String: Double]) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let context = appDelegate.persistentContainer.viewContext
-        let currencyEntity = NSEntityDescription.entity(forEntityName: "Currency", in: context)!
+        let currencyEntity = NSEntityDescription.entity(forEntityName: "Currencies", in: context)!
         for key in nameDicSortedKeys {
             let currency = NSManagedObject(entity: currencyEntity, insertInto: context)
             currency.setValue(key, forKey: "abbr")
@@ -46,7 +46,7 @@ class DBUtil: NSObject {
     func readCurrencies() -> [NSManagedObject]? {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return nil }
         let context = appDelegate.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Currency")
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Currencies")
         do {
             let currencies = try context.fetch(fetchRequest)
             for currency in currencies {
@@ -64,7 +64,7 @@ class DBUtil: NSObject {
     func deleteAllCurrencies() {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let context = appDelegate.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Currency")
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Currencies")
         do {
             let allCurrencies = try context.fetch(fetchRequest)
             for currency in allCurrencies {
