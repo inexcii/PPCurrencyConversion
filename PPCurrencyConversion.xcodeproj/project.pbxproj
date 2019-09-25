@@ -10,7 +10,6 @@
 		0057AD58233B517A002EFFE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0057AD57233B517A002EFFE6 /* AppDelegate.swift */; };
 		0057AD5A233B517A002EFFE6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0057AD59233B517A002EFFE6 /* SceneDelegate.swift */; };
 		0057AD5D233B517A002EFFE6 /* PPCurrencyConversion.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0057AD5B233B517A002EFFE6 /* PPCurrencyConversion.xcdatamodeld */; };
-		0057AD5F233B517A002EFFE6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0057AD5E233B517A002EFFE6 /* ContentView.swift */; };
 		0057AD61233B517B002EFFE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0057AD60233B517B002EFFE6 /* Assets.xcassets */; };
 		0057AD64233B517B002EFFE6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0057AD63233B517B002EFFE6 /* Preview Assets.xcassets */; };
 		0057AD67233B517B002EFFE6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0057AD65233B517B002EFFE6 /* LaunchScreen.storyboard */; };
@@ -22,6 +21,9 @@
 		0057AD93233B5611002EFFE6 /* DBUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0057AD92233B5611002EFFE6 /* DBUtil.swift */; };
 		0057AD96233B58FF002EFFE6 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0057AD95233B58FF002EFFE6 /* Currency.swift */; };
 		0057AD98233B594C002EFFE6 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0057AD97233B594C002EFFE6 /* UserData.swift */; };
+		0057AD9A233B5B8A002EFFE6 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0057AD99233B5B8A002EFFE6 /* ListView.swift */; };
+		0057AD9C233B7DE4002EFFE6 /* CurrencyRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0057AD9B233B7DE4002EFFE6 /* CurrencyRowView.swift */; };
+		0057AD9F233B805F002EFFE6 /* ModelHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0057AD9E233B805F002EFFE6 /* ModelHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,7 +48,6 @@
 		0057AD57233B517A002EFFE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0057AD59233B517A002EFFE6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		0057AD5C233B517A002EFFE6 /* PPCurrencyConversion.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PPCurrencyConversion.xcdatamodel; sourceTree = "<group>"; };
-		0057AD5E233B517A002EFFE6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0057AD60233B517B002EFFE6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0057AD63233B517B002EFFE6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0057AD66233B517B002EFFE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -63,6 +64,9 @@
 		0057AD92233B5611002EFFE6 /* DBUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBUtil.swift; sourceTree = "<group>"; };
 		0057AD95233B58FF002EFFE6 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		0057AD97233B594C002EFFE6 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		0057AD99233B5B8A002EFFE6 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		0057AD9B233B7DE4002EFFE6 /* CurrencyRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRowView.swift; sourceTree = "<group>"; };
+		0057AD9E233B805F002EFFE6 /* ModelHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +123,7 @@
 				0057AD8D233B551B002EFFE6 /* Data */,
 				0057AD94233B58EB002EFFE6 /* Model */,
 				0057AD8C233B5513002EFFE6 /* UI */,
+				0057AD9D233B8036002EFFE6 /* Handler */,
 				0057AD60233B517B002EFFE6 /* Assets.xcassets */,
 				0057AD65233B517B002EFFE6 /* LaunchScreen.storyboard */,
 				0057AD68233B517B002EFFE6 /* Info.plist */,
@@ -157,7 +162,8 @@
 		0057AD8C233B5513002EFFE6 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				0057AD5E233B517A002EFFE6 /* ContentView.swift */,
+				0057AD99233B5B8A002EFFE6 /* ListView.swift */,
+				0057AD9B233B7DE4002EFFE6 /* CurrencyRowView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -179,6 +185,14 @@
 				0057AD97233B594C002EFFE6 /* UserData.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		0057AD9D233B8036002EFFE6 /* Handler */ = {
+			isa = PBXGroup;
+			children = (
+				0057AD9E233B805F002EFFE6 /* ModelHandler.swift */,
+			);
+			path = Handler;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -312,14 +326,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0057AD9F233B805F002EFFE6 /* ModelHandler.swift in Sources */,
+				0057AD9C233B7DE4002EFFE6 /* CurrencyRowView.swift in Sources */,
 				0057AD96233B58FF002EFFE6 /* Currency.swift in Sources */,
 				0057AD8B233B549F002EFFE6 /* Constants.swift in Sources */,
 				0057AD58233B517A002EFFE6 /* AppDelegate.swift in Sources */,
 				0057AD8F233B553E002EFFE6 /* Loader.swift in Sources */,
 				0057AD93233B5611002EFFE6 /* DBUtil.swift in Sources */,
 				0057AD5D233B517A002EFFE6 /* PPCurrencyConversion.xcdatamodeld in Sources */,
-				0057AD5F233B517A002EFFE6 /* ContentView.swift in Sources */,
 				0057AD91233B5586002EFFE6 /* JsonParser.swift in Sources */,
+				0057AD9A233B5B8A002EFFE6 /* ListView.swift in Sources */,
 				0057AD98233B594C002EFFE6 /* UserData.swift in Sources */,
 				0057AD5A233B517A002EFFE6 /* SceneDelegate.swift in Sources */,
 			);

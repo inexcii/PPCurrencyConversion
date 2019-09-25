@@ -19,17 +19,47 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
 
+        let userData = UserData(currencies: ModelHandler.getModels())
+        
+        if !DBUtil.shared.isCurrencyExisted() {
+            NSLog("no currency exists in DB, must to fetch from API")
+            
+            let loader = Loader()
+            let parser = JsonParser()
+            
+            // fetch name-abbr-rate values of the currencies from API
+            loader.load(url: URL(string: Constants.ApiName)!) { data in
+                guard let data = data else { return }
+                let namesDic = parser.parseName(data: data)
+                let namesDicSortedKeys = Array(namesDic.keys).sorted()
+                loader.load(url: URL(string: Constants.ApiRate)!) { data in
+                    guard let data = data else { return }
+                    let ratesDic = parser.parseRates(data: data)
+                    DispatchQueue.main.async {
+                        // save to DB
+                        DBUtil.shared.createCurrencies(keys: namesDicSortedKeys,
+                                                       namesDic: namesDic,
+                                                       ratesDic: ratesDic)
+                        // update UI models
+                        userData.currencies = ModelHandler.getModels()
+                    }
+                }
+            }
+        }
+        
         // Get the managed object context from the shared persistent container.
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
         // Create the SwiftUI view and set the context as the value for the managedObjectContext environment keyPath.
         // Add `@Environment(\.managedObjectContext)` in the views that will need the context.
-        let contentView = ContentView().environment(\.managedObjectContext, context)
+        let listView = ListView()
+            .environment(\.managedObjectContext, context)
+            .environmentObject(userData)
 
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            window.rootViewController = UIHostingController(rootView: contentView)
+            window.rootViewController = UIHostingController(rootView: listView)
             self.window = window
             window.makeKeyAndVisible()
         }

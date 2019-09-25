@@ -12,6 +12,8 @@ struct Currency {
     var name: String
     var abbr: String
     var rate: Double
+    /// The amount that user inputs in the currency-selection view or displayed in the list as being converted by other selected currencies
+    var amount: String = "0"
 }
 
 extension Currency: Identifiable {
