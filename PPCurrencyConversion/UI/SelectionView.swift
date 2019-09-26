@@ -29,7 +29,7 @@ struct SelectionView: View {
                 
                 NumberpadView(currency: currency, rows: 4, columns: 3)
             }
-            .navigationBarTitle("\(currency.abbr):\(currency.rate)")
+            .navigationBarTitle("\(currency.abbr)")
             .navigationBarItems(trailing:
                 Button(action: {
                     self.userData.updateRates(by: self.currency.abbr)
