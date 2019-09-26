@@ -25,4 +25,4 @@ A currency conversion app that is required running iOS 13.0 or later.
 
 #### Attention
 1. The currency list will only show up if your phone has network connected.
-2. The tap on the currency should be exactly on the TEXT of the currency(not blank area of that row).
+2. The tap on the currency should be exactly on the TEXT of the currency(not blank area of that row). (see issue [#1](https://github.com/inexcii/PPCurrencyConversion/issues/1))
