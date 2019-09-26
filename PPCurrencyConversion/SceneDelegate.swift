@@ -19,10 +19,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
 
-        let userData = UserData(currencies: ModelHandler.getModels())
+        var userData: UserData
         
-        if !DBUtil.shared.isCurrencyExisted() {
+        if let currencies = DBUtil.shared.readCurrencies(), currencies.count > 0 {
+            // if currency exists
+            userData = UserData(currencies: ModelHandler.getModels(from: currencies))
+        } else {
             NSLog("no currency exists in DB, must to fetch from API")
+            // use empty data to construct UI
+            userData = UserData(currencies: [Currency]())
             
             let loader = Loader()
             let parser = JsonParser()
@@ -37,11 +42,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                     let ratesDic = parser.parseRates(data: data)
                     DispatchQueue.main.async {
                         // save to DB
-                        DBUtil.shared.createCurrencies(keys: namesDicSortedKeys,
-                                                       namesDic: namesDic,
-                                                       ratesDic: ratesDic)
-                        // update UI models
-                        userData.currencies = ModelHandler.getModels()
+                        let currencies = DBUtil.shared.createCurrencies(keys: namesDicSortedKeys,
+                                                                        namesDic: namesDic,
+                                                                        ratesDic: ratesDic)
+                        // update models so as to refresh UI
+                        if let currencies = currencies {
+                            userData.currencies = ModelHandler.getModels(from: currencies)
+                        } else {
+                            print("no currencies found in DB after being saved")
+                        }
                     }
                 }
             }

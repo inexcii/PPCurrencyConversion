@@ -17,29 +17,25 @@ class DBUtil: NSObject {
     
     private override init() {}
     
-    func isCurrencyExisted() -> Bool {
-        if let currencies = readCurrencies(), currencies.count > 0 {
-            return true
-        } else {
-            return false
-        }
-    }
-    
-    func createCurrencies(keys nameDicSortedKeys: [String], namesDic: [String: String], ratesDic: [String: Double]) {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+    func createCurrencies(keys nameDicSortedKeys: [String], namesDic: [String: String], ratesDic: [String: Double]) -> [NSManagedObject]? {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return nil }
         let context = appDelegate.persistentContainer.viewContext
         let currencyEntity = NSEntityDescription.entity(forEntityName: "Currencies", in: context)!
+        var currencies = [NSManagedObject]()
         for key in nameDicSortedKeys {
             let currency = NSManagedObject(entity: currencyEntity, insertInto: context)
             currency.setValue(key, forKey: "abbr")
             currency.setValue(namesDic[key], forKey: "name")
             currency.setValue(ratesDic[key], forKey: "rate")
+            currencies.append(currency)
         }
         do {
             try context.save()
             NSLog("create complete")
+            return currencies
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
+            return nil
         }
     }
     
