@@ -16,8 +16,9 @@ struct CurrencyRowView: View {
             Text(currency.abbr)
             Text(":")
             Text(currency.name)
+                .minimumScaleFactor(0.1)
             Spacer()
-            Text(currency.amount)
+            Text(DataHandler.roundDecimalPointToDigit(10e6, number: currency.displayAmount))
                 .lineLimit(3)
                 .minimumScaleFactor(0.01)
         }

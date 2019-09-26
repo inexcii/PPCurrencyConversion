@@ -10,6 +10,8 @@ import SwiftUI
 
 struct ListView: View {
     @EnvironmentObject var userData: UserData
+    @State private var showModal = false
+    @State private var index: Int = 0
     
     var body: some View {
         NavigationView {
@@ -17,11 +19,18 @@ struct ListView: View {
                 ForEach(userData.currencies) { currency in
                     CurrencyRowView(currency: currency)
                         .onTapGesture {
-                            // TODO: tap action
+                            self.showModal.toggle()
+                            self.index = self.userData.currencies.firstIndex(where: { $0.id == currency.id })!
                     }
                 }
             }
         .navigationBarTitle(Text("Currency Conversion"))
+            .sheet(isPresented: $showModal, onDismiss: {
+                print("selection view dismissed")
+            }) {
+                SelectionView(currency: self.userData.currencies[self.index])
+                    .environmentObject(self.userData)
+            }
         }
     }
 }

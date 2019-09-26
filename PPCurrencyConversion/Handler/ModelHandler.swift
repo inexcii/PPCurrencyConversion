@@ -11,7 +11,8 @@ import Foundation
 /// Handles model-UI related tasks
 class ModelHandler {
     
-    /// returns the Currency models fetched from DB
+    /// Returns the Currency models fetched from DB.
+    /// The models are sorted by its `abbr` property
     static func getModels() -> [Currency] {
         var models = [Currency]()
         if let currencies = DBUtil.shared.readCurrencies() {
@@ -22,6 +23,6 @@ class ModelHandler {
                 models.append(Currency(name: name, abbr: abbr, rate: rate))
             }
         }
-        return models
+        return models.sorted(by: { $0.abbr < $1.abbr })
     }
 }

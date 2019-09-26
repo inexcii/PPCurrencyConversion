@@ -24,6 +24,10 @@
 		0057AD9A233B5B8A002EFFE6 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0057AD99233B5B8A002EFFE6 /* ListView.swift */; };
 		0057AD9C233B7DE4002EFFE6 /* CurrencyRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0057AD9B233B7DE4002EFFE6 /* CurrencyRowView.swift */; };
 		0057AD9F233B805F002EFFE6 /* ModelHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0057AD9E233B805F002EFFE6 /* ModelHandler.swift */; };
+		0057ADA1233B8EA4002EFFE6 /* SelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0057ADA0233B8EA4002EFFE6 /* SelectionView.swift */; };
+		0057ADA4233B8ED3002EFFE6 /* NumberpadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0057ADA3233B8ED3002EFFE6 /* NumberpadView.swift */; };
+		0057ADA6233B8EE1002EFFE6 /* NumberpadButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0057ADA5233B8EE1002EFFE6 /* NumberpadButtonView.swift */; };
+		0057ADA8233BA4A9002EFFE6 /* DataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0057ADA7233BA4A9002EFFE6 /* DataHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +71,10 @@
 		0057AD99233B5B8A002EFFE6 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		0057AD9B233B7DE4002EFFE6 /* CurrencyRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRowView.swift; sourceTree = "<group>"; };
 		0057AD9E233B805F002EFFE6 /* ModelHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelHandler.swift; sourceTree = "<group>"; };
+		0057ADA0233B8EA4002EFFE6 /* SelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionView.swift; sourceTree = "<group>"; };
+		0057ADA3233B8ED3002EFFE6 /* NumberpadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberpadView.swift; sourceTree = "<group>"; };
+		0057ADA5233B8EE1002EFFE6 /* NumberpadButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberpadButtonView.swift; sourceTree = "<group>"; };
+		0057ADA7233BA4A9002EFFE6 /* DataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +172,8 @@
 			children = (
 				0057AD99233B5B8A002EFFE6 /* ListView.swift */,
 				0057AD9B233B7DE4002EFFE6 /* CurrencyRowView.swift */,
+				0057ADA0233B8EA4002EFFE6 /* SelectionView.swift */,
+				0057ADA2233B8EBD002EFFE6 /* Numberpad */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -191,8 +201,18 @@
 			isa = PBXGroup;
 			children = (
 				0057AD9E233B805F002EFFE6 /* ModelHandler.swift */,
+				0057ADA7233BA4A9002EFFE6 /* DataHandler.swift */,
 			);
 			path = Handler;
+			sourceTree = "<group>";
+		};
+		0057ADA2233B8EBD002EFFE6 /* Numberpad */ = {
+			isa = PBXGroup;
+			children = (
+				0057ADA3233B8ED3002EFFE6 /* NumberpadView.swift */,
+				0057ADA5233B8EE1002EFFE6 /* NumberpadButtonView.swift */,
+			);
+			path = Numberpad;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -328,8 +348,12 @@
 			files = (
 				0057AD9F233B805F002EFFE6 /* ModelHandler.swift in Sources */,
 				0057AD9C233B7DE4002EFFE6 /* CurrencyRowView.swift in Sources */,
+				0057ADA1233B8EA4002EFFE6 /* SelectionView.swift in Sources */,
 				0057AD96233B58FF002EFFE6 /* Currency.swift in Sources */,
+				0057ADA8233BA4A9002EFFE6 /* DataHandler.swift in Sources */,
 				0057AD8B233B549F002EFFE6 /* Constants.swift in Sources */,
+				0057ADA6233B8EE1002EFFE6 /* NumberpadButtonView.swift in Sources */,
+				0057ADA4233B8ED3002EFFE6 /* NumberpadView.swift in Sources */,
 				0057AD58233B517A002EFFE6 /* AppDelegate.swift in Sources */,
 				0057AD8F233B553E002EFFE6 /* Loader.swift in Sources */,
 				0057AD93233B5611002EFFE6 /* DBUtil.swift in Sources */,

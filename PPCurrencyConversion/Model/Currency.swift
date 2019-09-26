@@ -18,4 +18,11 @@ struct Currency {
 
 extension Currency: Identifiable {
     var id: String { abbr }
+    var displayAmount: String {
+        guard let amount = Double(amount) else {
+            return "0"
+        }
+        print("\(abbr) based on amount: \(amount), rate: \(rate), display amount is: \(amount * rate)")
+        return String(amount * rate)
+    }
 }

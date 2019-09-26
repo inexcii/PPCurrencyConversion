@@ -15,5 +15,21 @@ final class UserData: ObservableObject {
     init(currencies: [Currency]) {
         self.currencies = currencies
     }
+    
+    func updateRates(by abbr: String) {
+        let newRates = DataHandler.calculateRate(rates: DataHandler.getRatesFromDB(),
+                                                 by: abbr)
+        for currency in currencies {
+            let index = currencies.firstIndex(where: { $0.id == currency.id })!
+            currencies[index].rate = newRates[currency.abbr] ?? 0.0
+        }
+    }
+    
+    func setAmount(_ amount: String) {
+        for currency in currencies {
+            let index = currencies.firstIndex(where: { $0.id == currency.id })!
+            currencies[index].amount = amount
+        }
+    }
 }
 
