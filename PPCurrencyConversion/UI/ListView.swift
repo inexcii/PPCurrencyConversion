@@ -11,7 +11,7 @@ import SwiftUI
 struct ListView: View {
     @EnvironmentObject var userData: UserData
     @State private var showModal = false
-    @State private var index: Int = 0
+    @State private var index: Int?
     
     var body: some View {
         NavigationView {
@@ -24,11 +24,14 @@ struct ListView: View {
                     }
                 }
             }
-        .navigationBarTitle(Text("Currency Conversion"))
+            .navigationBarTitle(
+                Text((self.index != nil) ? "Selected Currency: \(self.userData.currencies[self.index!].abbr)" : "Currency Conversion"),
+                displayMode: .inline
+            )
             .sheet(isPresented: $showModal, onDismiss: {
                 print("selection view dismissed")
             }) {
-                SelectionView(currency: self.userData.currencies[self.index])
+                SelectionView(currency: self.userData.currencies[self.index ?? 0])
                     .environmentObject(self.userData)
             }
         }
